@@ -1,0 +1,15 @@
+if __name__ == '__main__':
+    N = int(input())
+    lst = []
+    
+    for _ in range(N):
+        command_args = input().strip().split(' ')
+        cmd = command_args[0]
+        args = command_args[1:]
+        
+        if cmd == "print":
+            print(lst)
+        else:
+            # Dynamically executes the list command like lst.insert(0, 5) or lst.append(3)
+            cmd_string = f"lst.{cmd}(" + ",".join(args) + ")"
+            eval(cmd_string)
